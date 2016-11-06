@@ -1,0 +1,27 @@
+{
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"arduino_debug",
+				"--verify",
+				"--verbose-build",
+				"--board",
+				"arduino:avr:mega:cpu=atmega2560",
+				"--pref",
+				"build.path=${project_path:${folder}}\\bin",
+				"${project_path:${folder}}\\Marlin\\Marlin.ino"
+			],
+			"name": "Arduino Builder",
+			"path": "C:\\Program Files (x86)\\Arduino",
+			"working_dir": "${project_path:${folder}}"
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "Marlin"
+		}
+	]
+}

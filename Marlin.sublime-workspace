@@ -1,0 +1,380 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"TEMP",
+				"TEMP_BED_PIN"
+			],
+			[
+				"SERVO",
+				"SERVO0_PIN"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"add repo",
+				"Package Control: Add Repository"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			" import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin"
+	],
+	"file_history":
+	[
+		"/C/Users/Fulg/Downloads/VORON Tuned Aug 23 2016.factory",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/Configuration_adv.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_TEST/Marlin/Configuration.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/Configuration.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/temperature.cpp",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/Marlin_main.cpp",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Marlin/temperature.cpp",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/thermistortables.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Marlin/Configuration.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Marlin/language.h",
+		"/C/Users/Fulg/Documents/Code/VORON_test/Marlin/G29_debug_RC7.txt",
+		"/C/Users/Fulg/Documents/Code/VORON_test/Marlin/G29_debug_RCBugFix.txt",
+		"/C/Users/Fulg/Documents/Code/VORON_test/Marlin/Configuration.h",
+		"/C/Users/Fulg/Documents/Code/VORON_test/Marlin/Marlin_main.cpp",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/pins_RAMPS.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/pins_AZTEEG_X3.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/pins.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/boards.h",
+		"/C/Users/Fulg/AppData/Local/Arduino15/preferences.txt",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin_for_VORON.sublime-workspace",
+		"/C/Users/Fulg/Downloads/M2-E3D-0.4mm.fff",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/.gitignore",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Marlin_for_ORDBot.sublime-project",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/buildroot/bin/build_marlin",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Configuration_adv.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/SanityCheck.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/servo.cpp",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Configuration.h",
+		"/C/Program Files (x86)/Arduino/examples/01.Basics/AnalogReadSerial/AnalogReadSerial.ino",
+		"/C/Users/Fulg/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/pins_RAMPS.h",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/pins_AZTEEG_X3.h",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/Configuration_adv.h",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/Configuration.h",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/pins_RAMPS_13.h",
+		"/C/Users/Fulg/Downloads/power_box_2.gcode",
+		"/C/Users/Fulg/Downloads/z_shaft_support_lower_x4.gcode",
+		"/D/Documents/Code/Aeon/Building.txt",
+		"/C/Users/Fulg/Documents/Code/UnrealEngine/Engine/Binaries/ThirdParty/OSVRClientKit/OSVR.tps",
+		"/C/Users/Fulg/Documents/Code/UnrealEngine/GenerateProjectFiles.command",
+		"/C/Program Files (x86)/Oculus/Software/oculus-oculus-video/videos_settings.ini",
+		"/C/Users/Fulg/Downloads/AutoplayVR_0.85/AutoplayVR/Manual.txt",
+		"/C/Users/Fulg/Downloads/bigbox_pro(1).fff",
+		"/C/Users/Fulg/Downloads/nt-6-6-2.xyz",
+		"/C/Users/Fulg/Downloads/FirstCube.gcode",
+		"/C/Strawberry/README.txt",
+		"/C/Users/Fulg/Documents/3DPrinter/Duct/Customizable_fan_duct_Tobera_parametrizable/Instructions_-_Instrucciones.txt",
+		"/D/Documents/Arduino/Marlin.ref/pins.h",
+		"/C/Users/Fulg/Downloads/_40x10.gcode",
+		"/D/_Stuff/VirtualRealPlayer-0.7.8beta/Config/GeneralConfig.txt",
+		"/D/_Stuff/VirtualRealPlayer-0.7.8beta/Readme.txt",
+		"/C/Users/Fulg/Documents/Marlin/Marlin/pins.h",
+		"/I/octopi-network.txt",
+		"/C/Users/Fulg/Documents/wowgirls_passwords.txt",
+		"/C/Documents and Settings/Fulg/Downloads/EZStruder.SAT",
+		"/C/Users/Fulg/Downloads/FirstCube_single_wall(1).gcode",
+		"//MORDOR/Media/Software/Applications/Acronis TrueImage 2016/serial.txt",
+		"//MORDOR/Media/Software/Applications/Acronis TrueImage 2015/serial.txt",
+		"//Mordor/Media/Software/Heli/RealFlight/BUILD.TXT",
+		"/C/Users/Fulg/Downloads/20mm_cube.gcode",
+		"/C/Users/Fulg/Downloads/rex.gcode",
+		"/C/Users/Fulg/AppData/Local/Temp/Rar$DIa0.395/README.txt",
+		"/J/config.txt",
+		"/I/octopi.txt",
+		"/D/Documents/Arduino/libraries/readme.txt",
+		"/D/Documents/Arduino/Marlin-1.0.2-1/README.md",
+		"/I/config.txt"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\Users\\Fulg\\Documents\\Code\\Marlin_RCBugFix\\Marlin",
+			"C:\\Users\\Fulg\\Documents\\Code\\Marlin_for_VORON\\Marlin",
+			"C:\\Users\\Fulg\\Documents\\Code\\Marlin_for_ORDBot\\Marlin",
+			"<open folders>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"sync_from_steppers",
+			"planner.sync_from_steppers()",
+			"MAX_BED_POWER",
+			"300",
+			"eep",
+			"home",
+			"fast",
+			"HEATER_0_MAXTEMP",
+			"PID_BED_DEBUG",
+			"current_temperature_bed",
+			"maxtemp",
+			"maxtempra",
+			"max_temp_ra",
+			"maxtemp_ra",
+			"SERIAL_ERRORLNPGM",
+			"MSG_ERR_KILLED",
+			" MSG_ERR_KILLED",
+			"kill() called",
+			"BED_MAXTEMP",
+			"MAXTEMP",
+			"maxtemp",
+			"MSG_STOPPED_HEATER",
+			"system stopped!",
+			"triggered, system stopped!",
+			"BED_MAXTEMP",
+			"extruder",
+			"INVERT_E0_DIR",
+			"therm",
+			"safe_ho",
+			"num_serv",
+			"servo_nr",
+			"DIGIPOT_I2C",
+			"invert",
+			"digipot",
+			"e_step",
+			"estep",
+			"debug",
+			"prepare_move_to_destination",
+			"g1",
+			"200",
+			"m303",
+			"raise",
+			"MSG_FILAMENTCHANGE",
+			"retract",
+			"m303",
+			"marlin",
+			"commandpal",
+			"bltouch",
+			"SERVO_DELAY",
+			"3.00",
+			"beep",
+			"ooze",
+			"blip",
+			"left ex",
+			"perime",
+			"shell",
+			"petg",
+			"115",
+			"pause_button_pin",
+			"m112",
+			"PauseButton",
+			"m109",
+			"p_factor",
+			"pwm"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Marlin.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"tempera",
+				"temperature.cpp"
+			],
+			[
+				"confo",
+				"Configuration.h"
+			],
+			[
+				"conf",
+				"Configuration.h"
+			],
+			[
+				"ramp",
+				"pins_RAMPS.h"
+			],
+			[
+				"config",
+				"Configuration_adv.h"
+			],
+			[
+				"pins",
+				"pins_AZTEEG_X3.h"
+			],
+			[
+				"azte",
+				"pins_AZTEEG_X3.h"
+			],
+			[
+				"aztee",
+				"pins_AZTEEG_X3.h"
+			],
+			[
+				"boards",
+				"boards.h"
+			],
+			[
+				"marl",
+				"Marlin_main.cpp"
+			],
+			[
+				"pins_az",
+				"pins_AZTEEG_X3.h"
+			],
+			[
+				"boa",
+				"boards.h"
+			],
+			[
+				"marli",
+				"Marlin_main.cpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 266.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
