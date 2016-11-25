@@ -161,7 +161,11 @@ extern volatile uint8_t buttons;  //an extended version of the last checked butt
   #include <LCD.h>
   #include <LiquidCrystal_SR.h>
   #define LCD_CLASS LiquidCrystal_SR
-  LCD_CLASS lcd(SR_DATA_PIN, SR_CLK_PIN);
+  #if defined(SR_STROBE_PIN)
+    LCD_CLASS lcd(SR_DATA_PIN, SR_CLK_PIN, SR_STROBE_PIN);
+  #else
+    LCD_CLASS lcd(SR_DATA_PIN, SR_CLK_PIN);
+  #endif
 #elif ENABLED(LCM1602)
   #include <Wire.h>
   #include <LCD.h>
@@ -717,7 +721,7 @@ static void lcd_implementation_status_screen() {
     lcd.print(itostr3(feedrate_percentage));
     lcd.print('%');
 
-    #if LCD_WIDTH > 19 && ENABLED(SDSUPPORT)
+    #if LCD_WIDTH >= 20 && ENABLED(SDSUPPORT)
 
       lcd.setCursor(7, 2);
       lcd_printPGM(PSTR("SD"));
@@ -727,7 +731,7 @@ static void lcd_implementation_status_screen() {
         lcd_printPGM(PSTR("---"));
       lcd.print('%');
 
-    #endif // LCD_WIDTH > 19 && SDSUPPORT
+    #endif // LCD_WIDTH >= 20 && SDSUPPORT
 
     lcd.setCursor(LCD_WIDTH - 6, 2);
     lcd.print(LCD_STR_CLOCK[0]);
@@ -859,6 +863,7 @@ static void lcd_implementation_status_screen() {
   #define lcd_implementation_drawmenu_setting_edit_float5(sel, row, pstr, pstr2, data, minValue, maxValue) lcd_implementation_drawmenu_setting_edit_generic(sel, row, pstr, '>', ftostr5rj(*(data)))
   #define lcd_implementation_drawmenu_setting_edit_float52(sel, row, pstr, pstr2, data, minValue, maxValue) lcd_implementation_drawmenu_setting_edit_generic(sel, row, pstr, '>', ftostr52sign(*(data)))
   #define lcd_implementation_drawmenu_setting_edit_float51(sel, row, pstr, pstr2, data, minValue, maxValue) lcd_implementation_drawmenu_setting_edit_generic(sel, row, pstr, '>', ftostr51sign(*(data)))
+  #define lcd_implementation_drawmenu_setting_edit_float62(sel, row, pstr, pstr2, data, minValue, maxValue) lcd_implementation_drawmenu_setting_edit_generic(sel, row, pstr, '>', ftostr62sign(*(data)))
   #define lcd_implementation_drawmenu_setting_edit_long5(sel, row, pstr, pstr2, data, minValue, maxValue) lcd_implementation_drawmenu_setting_edit_generic(sel, row, pstr, '>', ftostr5rj(*(data)))
   #define lcd_implementation_drawmenu_setting_edit_bool(sel, row, pstr, pstr2, data) lcd_implementation_drawmenu_setting_edit_generic_P(sel, row, pstr, '>', (*(data))?PSTR(MSG_ON):PSTR(MSG_OFF))
 
@@ -870,6 +875,7 @@ static void lcd_implementation_status_screen() {
   #define lcd_implementation_drawmenu_setting_edit_callback_float5(sel, row, pstr, pstr2, data, minValue, maxValue, callback) lcd_implementation_drawmenu_setting_edit_generic(sel, row, pstr, '>', ftostr5rj(*(data)))
   #define lcd_implementation_drawmenu_setting_edit_callback_float52(sel, row, pstr, pstr2, data, minValue, maxValue, callback) lcd_implementation_drawmenu_setting_edit_generic(sel, row, pstr, '>', ftostr52sign(*(data)))
   #define lcd_implementation_drawmenu_setting_edit_callback_float51(sel, row, pstr, pstr2, data, minValue, maxValue, callback) lcd_implementation_drawmenu_setting_edit_generic(sel, row, pstr, '>', ftostr51sign(*(data)))
+  #define lcd_implementation_drawmenu_setting_edit_callback_float62(sel, row, pstr, pstr2, data, minValue, maxValue, callback) lcd_implementation_drawmenu_setting_edit_generic(sel, row, pstr, '>', ftostr62sign(*(data)))
   #define lcd_implementation_drawmenu_setting_edit_callback_long5(sel, row, pstr, pstr2, data, minValue, maxValue, callback) lcd_implementation_drawmenu_setting_edit_generic(sel, row, pstr, '>', ftostr5rj(*(data)))
   #define lcd_implementation_drawmenu_setting_edit_callback_bool(sel, row, pstr, pstr2, data, callback) lcd_implementation_drawmenu_setting_edit_generic_P(sel, row, pstr, '>', (*(data))?PSTR(MSG_ON):PSTR(MSG_OFF))
 
