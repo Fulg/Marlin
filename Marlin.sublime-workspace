@@ -15,10 +15,47 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Marlin/Configuration.h",
+			"settings":
+			{
+				"buffer_size": 54512,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
-	"build_system": "",
+	"build_system": "Arduino Builder",
 	"build_system_choices":
 	[
+		[
+			[
+				[
+					"Arduino Builder",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Arduino Builder",
+				""
+			]
+		]
 	],
 	"build_varint": "",
 	"command_palette":
@@ -69,6 +106,19 @@
 	],
 	"file_history":
 	[
+		"/K/octopi-network.txt",
+		"/K/cmdline.txt",
+		"/K/octopi-hostname.txt",
+		"/K/octopi.txt",
+		"/C/Users/Fulg/Documents/Code/UnrealEngine/Engine/Build/JunkManifest.txt",
+		"/C/Users/Fulg/Documents/Code/UnrealEngine/Engine/Build/SourceDistribution.txt",
+		"/D/Documents/public_key.txt",
+		"/K/cmdline-pi-tft.txt",
+		"/K/config.txt",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/Configuration.h",
+		"/C/Users/Fulg/Downloads/Repetier/pins.h",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/Version.h",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/Configuration_adv.h",
 		"/C/Users/Fulg/Downloads/VORON Tuned Aug 23 2016.factory",
 		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/Configuration_adv.h",
 		"/C/Users/Fulg/Documents/Code/Marlin_TEST/Marlin/Configuration.h",
@@ -101,8 +151,6 @@
 		"/C/Users/Fulg/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
 		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/pins_RAMPS.h",
 		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/pins_AZTEEG_X3.h",
-		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/Configuration_adv.h",
-		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/Configuration.h",
 		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/pins_RAMPS_13.h",
 		"/C/Users/Fulg/Downloads/power_box_2.gcode",
 		"/C/Users/Fulg/Downloads/z_shaft_support_lower_x4.gcode",
@@ -139,13 +187,14 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
 		"height": 90.0,
 		"where_history":
 		[
+			"C:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin",
 			"C:\\Users\\Fulg\\Documents\\Code\\Marlin_RCBugFix\\Marlin",
 			"C:\\Users\\Fulg\\Documents\\Code\\Marlin_for_VORON\\Marlin",
 			"C:\\Users\\Fulg\\Documents\\Code\\Marlin_for_ORDBot\\Marlin",
@@ -157,6 +206,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"HOMING_FEEDRATE_Z",
+			"long",
+			"200",
+			"home",
+			"probe_end",
+			"pprobe_end",
+			"Z_MIN_PROBE_ENDSTOP_INVERTING",
+			"40",
+			"invert",
+			"SAFE_HOM",
+			"safe_hom",
 			"sync_from_steppers",
 			"planner.sync_from_steppers()",
 			"MAX_BED_POWER",
@@ -238,8 +298,39 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Marlin/Configuration.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 54512,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36286,
+								36286
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 12357.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -274,6 +365,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 279.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -292,15 +387,23 @@
 		"selected_items":
 		[
 			[
+				"con",
+				"Configuration.h"
+			],
+			[
+				"conf",
+				"Configuration.h"
+			],
+			[
+				"vers",
+				"Version.h"
+			],
+			[
 				"tempera",
 				"temperature.cpp"
 			],
 			[
 				"confo",
-				"Configuration.h"
-			],
-			[
-				"conf",
 				"Configuration.h"
 			],
 			[

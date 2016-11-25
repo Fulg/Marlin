@@ -175,8 +175,8 @@
 // Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing).
 // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
 // For the other hotends it is their distance from the extruder 0 hotend.
-#define HOTEND_OFFSET_X {0.0, 18.0} // (in mm) for each extruder, offset of the hotend on the X axis
-#define HOTEND_OFFSET_Y {0.0, 0.0}  // (in mm) for each extruder, offset of the hotend on the Y axis
+#define HOTEND_OFFSET_X {0.0, -18.0}  // (in mm) for each extruder, offset of the hotend on the X axis
+#define HOTEND_OFFSET_Y {0.0,   0.0}  // (in mm) for each extruder, offset of the hotend on the Y axis
 
 /**
  * Select your power supply here. Use 0 if you haven't connected the PS_ON_PIN
@@ -246,7 +246,7 @@
 #define TEMP_SENSOR_1 5
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
-#define TEMP_SENSOR_BED 11
+#define TEMP_SENSOR_BED 5
 
 // This makes temp sensor 1 a redundant sensor for sensor 0. If the temperatures difference between these sensors is to high the print will be aborted.
 //#define TEMP_SENSOR_1_AS_REDUNDANT
@@ -360,9 +360,13 @@
   //#define  DEFAULT_bedKi 1.41
   //#define  DEFAULT_bedKd 1675.16
 
-  #define  DEFAULT_bedKp 599.33
-  #define  DEFAULT_bedKi 105.12
-  #define  DEFAULT_bedKd 854.26
+  //#define  DEFAULT_bedKp 599.33
+  //#define  DEFAULT_bedKi 105.12
+  //#define  DEFAULT_bedKd 854.26
+
+  #define  DEFAULT_bedKp 348.45
+  #define  DEFAULT_bedKi 64.07
+  #define  DEFAULT_bedKd 473.76
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -428,7 +432,7 @@
 #define USE_ZMIN_PLUG
 //#define USE_XMAX_PLUG
 //#define USE_YMAX_PLUG
-//#define USE_ZMAX_PLUG
+#define USE_ZMAX_PLUG
 
 // coarse Endstop Settings
 #define ENDSTOPPULLUPS // Comment this out (using // at the start of the line) to disable the endstop pullup resistors
@@ -450,7 +454,7 @@
 #define Z_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
 #define X_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+#define Z_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
 #define Z_MIN_PROBE_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 
 
@@ -574,7 +578,7 @@
 // Speed for the "accurate" probe of each point
 #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)
 // Use double touch for probing
-#define PROBE_DOUBLE_TOUCH
+//#define PROBE_DOUBLE_TOUCH
 
 //
 // Allen Key Probe is defined in the Delta example configurations.
@@ -1341,7 +1345,7 @@
 // Temperature status LEDs that display the hotend and bed temperature.
 // If all hotends and bed temperature and temperature setpoint are < 54C then the BLUE led is on.
 // Otherwise the RED led is on. There is 1C hysteresis.
-//#define TEMP_STAT_LEDS
+#define TEMP_STAT_LEDS
 
 // M240  Triggers a camera by emulating a Canon RC-1 Remote
 // Data from: http://www.doc-diy.net/photo/rc-1_hacked/
