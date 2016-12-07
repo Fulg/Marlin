@@ -226,7 +226,11 @@
 
 // Define a pin to turn case light on/off
 //#define CASE_LIGHT_PIN 4
-//#define CASE_LIGHT_DEFAULT_ON   // Uncomment to set default state to on
+#if PIN_EXISTS(CASE_LIGHT)
+  #define INVERT_CASE_LIGHT false   // Set to true if HIGH is the OFF state (active low)
+  //#define CASE_LIGHT_DEFAULT_ON   // Uncomment to set default state to on
+  //#define MENU_ITEM_CASE_LIGHT    // Uncomment to have a Case Light On / Off entry in main menu
+#endif
 
 //===========================================================================
 //============================ Mechanical Settings ==========================
@@ -418,6 +422,9 @@
 // Include a page of printer information in the LCD Main Menu
 //#define LCD_INFO_MENU
 
+// On the Info Screen, display XY with one decimal place when possible
+//#define LCD_DECIMAL_SMALL_XY
+
 #if ENABLED(SDSUPPORT)
 
   // Some RAMPS and other boards don't detect when an SD card is inserted. You can work
@@ -459,15 +466,19 @@
 
 #endif // SDSUPPORT
 
-// for dogm lcd displays you can choose some additional fonts:
+// Some additional options are available for graphical displays:
 #if ENABLED(DOGLCD)
-  // save 3120 bytes of PROGMEM by commenting out #define USE_BIG_EDIT_FONT
-  // we don't have a big font for Cyrillic, Kana
+  // A bigger font is available for edit items. Costs 3120 bytes of PROGMEM.
+  // Western only. Not available for Cyrillic, Kana, Turkish, Greek, or Chinese.
   //#define USE_BIG_EDIT_FONT
 
-  // If you have spare 2300Byte of progmem and want to use a
-  // smaller font on the Info-screen uncomment the next line.
+  // A smaller font may be used on the Info Screen. Costs 2300 bytes of PROGMEM.
+  // Western only. Not available for Cyrillic, Kana, Turkish, Greek, or Chinese.
   //#define USE_SMALL_INFOFONT
+
+  // Enable this option and reduce the value to optimize screen updates.
+  // The normal delay is 10µs. Use the lowest value that still gives a reliable display.
+  //#define DOGM_SPI_DELAY_US 5
 #endif // DOGLCD
 
 // @section safety
@@ -520,8 +531,9 @@
 #if ENABLED(ENSURE_SMOOTH_MOVES)
   //#define ALWAYS_ALLOW_MENU      // If enabled, the menu will always be responsive.
                                    // WARNING: Menu navigation during short moves may cause stuttering!
-  #define LCD_UPDATE_THRESHOLD 170 // (ms) Minimum duration for the current segment to allow an LCD update.
+  #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.
                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).
+                                   // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.
   #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.
 #endif
 
@@ -759,6 +771,7 @@
 
 // @section TMC2130
 
+
 /**
  * Enable this for SilentStepStick Trinamic TMC2130 SPI-configurable stepper drivers.
  *
@@ -964,7 +977,6 @@
 #endif // HAVE_TMC2130DRIVER
 
 // @section L6470
-
 
 /**
  * Enable this section if you have L6470 motor drivers.
