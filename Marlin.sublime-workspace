@@ -1,0 +1,1349 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"TEMP",
+				"TEMP_BED_PIN"
+			],
+			[
+				"SERVO",
+				"SERVO0_PIN"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Marlin/Configuration.h",
+			"settings":
+			{
+				"buffer_size": 56488,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "/**\n * Marlin 3D Printer Firmware\n * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]\n *\n * Based on Sprinter and grbl.\n * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm\n *\n * This program is free software: you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation, either version 3 of the License, or\n * (at your option) any later version.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License\n * along with this program.  If not, see <http://www.gnu.org/licenses/>.\n *\n */\n\n/**\n * AZTEEG_X3 Arduino Mega with RAMPS v1.4 pin assignments\n */\n\n#if HOTENDS > 2\n  #error \"Azteeg X3 supports up to 2 hotends. Comment this line to keep going.\"\n#endif\n\n#define BOARD_NAME \"Azteeg X3\"\n\n#include \"pins_RAMPS_13.h\"\n\n//\n// Servos\n//\n#undef SERVO0_PIN\n#undef SERVO1_PIN\n#define SERVO0_PIN  44  // SERVO1 port\n#define SERVO1_PIN  55  // SERVO2 port\n\n//\n// LCD / Controller\n//\n#if ENABLED(VIKI2) || ENABLED(miniVIKI)\n\n  #undef DOGLCD_A0\n  #undef DOGLCD_CS\n  #undef BTN_ENC\n  #define DOGLCD_A0         31\n  #define DOGLCD_CS         32\n  #define BTN_ENC           12\n\n  #undef STAT_LED_RED_PIN\n  #undef STAT_LED_BLUE_PIN\n  #define STAT_LED_RED_PIN  64\n  #define STAT_LED_BLUE_PIN 63\n\n#else\n\n  #undef LCD_PINS_RS\n  #undef LCD_PINS_ENABLE\n  #undef LCD_PINS_D4\n\n  #define LCD_PINS_RS       31\n  #define LCD_PINS_ENABLE   32\n  #define LCD_PINS_D4       39\n\n  #undef BTN_EN1\n  #undef BTN_EN2\n  #undef BTN_ENC\n  #undef SD_DETECT_PIN\n  #undef LCD_SDSS\n\n  #define BTN_EN1           22\n  #define BTN_EN2            7\n  #define BTN_ENC           12\n  #define SD_DETECT_PIN     49\n  #define LCD_SDSS          53\n\n  //#define STAT_LED_RED_PIN   6\n  //#define STAT_LED_BLUE_PIN 11\n\n#endif\n",
+			"file": "Marlin/pins_AZTEEG_X3.h",
+			"file_size": 2219,
+			"file_write_time": 131316711600865584,
+			"settings":
+			{
+				"buffer_size": 2048,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Marlin/pins_RAMPS.h",
+			"settings":
+			{
+				"buffer_size": 10197,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 241 files for \"carddetect\"\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\language_de.h:\n  145  #define MSG_FILAMENTCHANGE                  \"Filament wechseln\"\n  146  #define MSG_INIT_SDCARD                     \"SD-Karte erkennen\"  // Manually initialize the SD-card via user interface\n  147: #define MSG_CNG_SDCARD                      \"SD-Karte getauscht\" // SD-card changed by user. For machines with no autocarddetect. Both send \"M21\"\n  148  #define MSG_ZPROBE_OUT                      \"Sensor ausserhalb\"\n  149  #define MSG_BLTOUCH_SELFTEST                \"BLTouch Test\"\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\SanityCheck.h:\n   62  #elif defined(X_HOME_RETRACT_MM)\n   63    #error \"[XYZ]_HOME_RETRACT_MM settings have been renamed [XYZ]_HOME_BUMP_MM.\"\n   64: #elif defined(SDCARDDETECTINVERTED)\n   65:   #error \"SDCARDDETECTINVERTED is now SD_DETECT_INVERTED. Please update your configuration.\"\n   66  #elif defined(BTENABLED)\n   67    #error \"BTENABLED is now BLUETOOTH. Please update your configuration.\"\n   ..\n  146  #elif defined(BEEPER)\n  147    #error \"BEEPER is now BEEPER_PIN. Please update your pins definitions.\"\n  148: #elif defined(SDCARDDETECT)\n  149:   #error \"SDCARDDETECT is now SD_DETECT_PIN. Please update your pins definitions.\"\n  150  #elif defined(STAT_LED_RED) || defined(STAT_LED_BLUE)\n  151    #error \"STAT_LED_RED/STAT_LED_BLUE are now STAT_LED_RED_PIN/STAT_LED_BLUE_PIN. Please update your pins definitions.\"\n\n5 matches across 2 files\n\n\nSearching 241 files for \"ELB_FULL_GRAPHIC_CONTROLLER\"\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\Conditionals_LCD.h:\n   47    #endif\n   48  \n   49:   #if ENABLED(miniVIKI) || ENABLED(VIKI2) || ENABLED(ELB_FULL_GRAPHIC_CONTROLLER)\n   50      #define ULTRA_LCD  //general LCD support, also 16x2\n   51      #define DOGLCD  // Support for SPI LCD 128x64 (Controller ST7565R graphic Display Family)\n   ..\n   58      #elif ENABLED(VIKI2)\n   59        #define DEFAULT_LCD_CONTRAST 40\n   60:     #elif ENABLED(ELB_FULL_GRAPHIC_CONTROLLER)\n   61        #define LCD_CONTRAST_MIN  90\n   62        #define LCD_CONTRAST_MAX 130\n   ..\n  259       || ENABLED(VIKI2) \\\n  260       || ENABLED(miniVIKI) \\\n  261:      || ENABLED(ELB_FULL_GRAPHIC_CONTROLLER) \\\n  262      )\n  263  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\Conditionals_post.h:\n  188    #endif\n  189  \n  190:   #if ENABLED(ULTIPANEL) && DISABLED(ELB_FULL_GRAPHIC_CONTROLLER)\n  191      #undef SD_DETECT_INVERTED\n  192    #endif\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\Configuration.h:\n 1251  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1252  //\n 1253: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1254  \n 1255  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\Configuration_adv.h:\n  432    // as SD_DETECT_PIN in your board's pins definitions.\n  433    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  434:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  435    #define SD_DETECT_INVERTED\n  436  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\adafruit\\ST7565\\Configuration.h:\n 1243  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1244  //\n 1245: #define ELB_FULL_GRAPHIC_CONTROLLER\n 1246  \n 1247  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Cartesio\\Configuration.h:\n 1243  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1244  //\n 1245: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1246  \n 1247  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Cartesio\\Configuration_adv.h:\n  432    // as SD_DETECT_PIN in your board's pins definitions.\n  433    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  434:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  435    #define SD_DETECT_INVERTED\n  436  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\biv2.5\\Configuration.h:\n 1339  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1340  //\n 1341: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1342  \n 1343  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\biv2.5\\Configuration_adv.h:\n  434    // as SD_DETECT_PIN in your board's pins definitions.\n  435    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  436:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  437    #define SD_DETECT_INVERTED\n  438  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\generic\\Configuration.h:\n 1333  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1334  //\n 1335: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1336  \n 1337  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\generic\\Configuration_adv.h:\n  434    // as SD_DETECT_PIN in your board's pins definitions.\n  435    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  436:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  437    #define SD_DETECT_INVERTED\n  438  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_mini\\Configuration.h:\n 1336  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1337  //\n 1338: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1339  \n 1340  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_mini\\Configuration_adv.h:\n  434    // as SD_DETECT_PIN in your board's pins definitions.\n  435    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  436:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  437    #define SD_DETECT_INVERTED\n  438  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_pro\\Configuration.h:\n 1335  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1336  //\n 1337: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1338  \n 1339  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_pro\\Configuration_adv.h:\n  439    // as SD_DETECT_PIN in your board's pins definitions.\n  440    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  441:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  442    #define SD_DETECT_INVERTED\n  443  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_xl\\Configuration.h:\n 1339  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1340  //\n 1341: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1342  \n 1343  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_xl\\Configuration_adv.h:\n  434    // as SD_DETECT_PIN in your board's pins definitions.\n  435    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  436:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  437    #define SD_DETECT_INVERTED\n  438  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Felix\\Configuration.h:\n 1226  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1227  //\n 1228: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1229  \n 1230  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Felix\\Configuration_adv.h:\n  432    // as SD_DETECT_PIN in your board's pins definitions.\n  433    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  434:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  435    #define SD_DETECT_INVERTED\n  436  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Felix\\DUAL\\Configuration.h:\n 1226  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1227  //\n 1228: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1229  \n 1230  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Hephestos\\Configuration.h:\n 1235  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1236  //\n 1237: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1238  \n 1239  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Hephestos\\Configuration_adv.h:\n  432    // as SD_DETECT_PIN in your board's pins definitions.\n  433    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  434:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  435    #define SD_DETECT_INVERTED\n  436  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Hephestos_2\\Configuration.h:\n 1237  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1238  //\n 1239: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1240  \n 1241  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Hephestos_2\\Configuration_adv.h:\n  432    // as SD_DETECT_PIN in your board's pins definitions.\n  433    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  434:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  435    #define SD_DETECT_INVERTED\n  436  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\K8200\\Configuration.h:\n 1275  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1276  //\n 1277: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1278  \n 1279  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\K8200\\Configuration_adv.h:\n  445    // as SD_DETECT_PIN in your board's pins definitions.\n  446    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  447:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  448    #define SD_DETECT_INVERTED\n  449  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\K8400\\Configuration.h:\n 1243  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1244  //\n 1245: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1246  \n 1247  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\K8400\\Configuration_adv.h:\n  432    // as SD_DETECT_PIN in your board's pins definitions.\n  433    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  434:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  435    #define SD_DETECT_INVERTED\n  436  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\K8400\\Dual-head\\Configuration.h:\n 1243  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1244  //\n 1245: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1246  \n 1247  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\makibox\\Configuration.h:\n 1246  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1247  //\n 1248: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1249  \n 1250  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\makibox\\Configuration_adv.h:\n  432    // as SD_DETECT_PIN in your board's pins definitions.\n  433    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  434:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  435    //#define SD_DETECT_INVERTED\n  436  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\RepRapWorld\\Megatronics\\Configuration.h:\n 1243  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1244  //\n 1245: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1246  \n 1247  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\RigidBot\\Configuration.h:\n 1242  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1243  //\n 1244: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1245  \n 1246  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\RigidBot\\Configuration_adv.h:\n  432    // as SD_DETECT_PIN in your board's pins definitions.\n  433    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  434:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  435    #define SD_DETECT_INVERTED\n  436  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\SCARA\\Configuration.h:\n 1258  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1259  //\n 1260: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1261  \n 1262  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\SCARA\\Configuration_adv.h:\n  432    // as SD_DETECT_PIN in your board's pins definitions.\n  433    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  434:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  435    #define SD_DETECT_INVERTED\n  436  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\TAZ4\\Configuration.h:\n 1264  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1265  //\n 1266: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1267  \n 1268  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\TAZ4\\Configuration_adv.h:\n  440    // as SD_DETECT_PIN in your board's pins definitions.\n  441    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  442:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  443    #define SD_DETECT_INVERTED\n  444  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\tvrrug\\Round2\\Configuration.h:\n 1239  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1240  //\n 1241: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1242  \n 1243  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\tvrrug\\Round2\\Configuration_adv.h:\n  432    // as SD_DETECT_PIN in your board's pins definitions.\n  433    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  434:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  435    #define SD_DETECT_INVERTED\n  436  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\WITBOX\\Configuration.h:\n 1235  // https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/\n 1236  //\n 1237: //#define ELB_FULL_GRAPHIC_CONTROLLER\n 1238  \n 1239  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\WITBOX\\Configuration_adv.h:\n  432    // as SD_DETECT_PIN in your board's pins definitions.\n  433    // This setting should be disabled unless you are using a push button, pulling the pin to ground.\n  434:   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).\n  435    #define SD_DETECT_INVERTED\n  436  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_RAMPS.h:\n  297        #define STAT_LED_BLUE_PIN 35\n  298  \n  299:     #elif ENABLED(ELB_FULL_GRAPHIC_CONTROLLER)\n  300        #define BTN_EN1 35  // reverse if the encoder turns the wrong way.\n  301        #define BTN_EN2 37\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\SanityCheck.h:\n  922   *       miniVIKI => ULTIMAKERCONTROLLER\n  923   *       VIKI2 => ULTIMAKERCONTROLLER\n  924:  *       ELB_FULL_GRAPHIC_CONTROLLER => ULTIMAKERCONTROLLER\n  925   *       PANEL_ONE => ULTIMAKERCONTROLLER\n  926   */\n  ...\n  928  #if ENABLED(ULTIMAKERCONTROLLER) \\\n  929      && DISABLED(SAV_3DGLCD) && DISABLED(miniVIKI) && DISABLED(VIKI2) \\\n  930:     && DISABLED(ELB_FULL_GRAPHIC_CONTROLLER) && DISABLED(PANEL_ONE)\n  931    #define COUNT_LCD_2 INCREMENT(COUNT_LCD_1)\n  932  #else\n  ...\n  973    #define COUNT_LCD_10 COUNT_LCD_9\n  974  #endif\n  975: #if ENABLED(ELB_FULL_GRAPHIC_CONTROLLER)\n  976    #define COUNT_LCD_11 INCREMENT(COUNT_LCD_10)\n  977  #else\n\n48 matches across 44 files\n\n\nSearching 241 files for \"REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\"\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\Conditionals_LCD.h:\n   85  \n   86    #if ENABLED(BQ_LCD_SMART_CONTROLLER)\n   87:     #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n   88  \n   89      #ifndef ENCODER_PULSES_PER_STEP\n   ..\n   99    #endif\n  100  \n  101:   #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)\n  102      #define DOGLCD\n  103      #define U8GLIB_ST7920\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\Configuration.h:\n 1273  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1274  //\n 1275: #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1276  \n 1277  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\Configuration_adv.h:\n  533                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  534    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  535:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  536                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  537    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\adafruit\\ST7565\\Configuration.h:\n 1265  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1266  //\n 1267: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1268  \n 1269  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Cartesio\\Configuration.h:\n 1265  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1266  //\n 1267: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1268  \n 1269  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Cartesio\\Configuration_adv.h:\n  533                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  534    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  535:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  536                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  537    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\biv2.5\\Configuration.h:\n 1361  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1362  //\n 1363: #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1364  \n 1365  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\biv2.5\\Configuration_adv.h:\n  535                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  536    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  537:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  538                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  539    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\generic\\Configuration.h:\n 1355  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1356  //\n 1357: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1358  \n 1359  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\generic\\Configuration_adv.h:\n  535                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  536    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  537:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  538                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  539    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_mini\\Configuration.h:\n 1358  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1359  //\n 1360: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1361  \n 1362  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_mini\\Configuration_adv.h:\n  535                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  536    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  537:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  538                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  539    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_pro\\Configuration.h:\n 1357  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1358  //\n 1359: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1360  \n 1361  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_pro\\Configuration_adv.h:\n  540                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  541    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  542:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  543                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  544    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_xl\\Configuration.h:\n 1361  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1362  //\n 1363: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1364  \n 1365  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\delta\\kossel_xl\\Configuration_adv.h:\n  535                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  536    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  537:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  538                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  539    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Felix\\Configuration.h:\n 1248  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1249  //\n 1250: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1251  \n 1252  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Felix\\Configuration_adv.h:\n  533                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  534    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  535:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  536                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  537    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Felix\\DUAL\\Configuration.h:\n 1248  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1249  //\n 1250: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1251  \n 1252  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Hephestos\\Configuration.h:\n 1257  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1258  //\n 1259: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1260  \n 1261  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Hephestos\\Configuration_adv.h:\n  533                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  534    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  535:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  536                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  537    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Hephestos_2\\Configuration.h:\n 1259  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1260  //\n 1261: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1262  \n 1263  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\Hephestos_2\\Configuration_adv.h:\n  533                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  534    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  535:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  536                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  537    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\K8200\\Configuration.h:\n 1297  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1298  //\n 1299: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1300  \n 1301  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\K8200\\Configuration_adv.h:\n  546                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  547    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  548:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  549                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  550    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\K8400\\Configuration.h:\n 1265  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1266  //\n 1267: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1268  \n 1269  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\K8400\\Configuration_adv.h:\n  533                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  534    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  535:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  536                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  537    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\K8400\\Dual-head\\Configuration.h:\n 1265  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1266  //\n 1267: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1268  \n 1269  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\makibox\\Configuration.h:\n 1268  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1269  //\n 1270: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1271  \n 1272  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\makibox\\Configuration_adv.h:\n  533                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  534    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  535:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  536                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  537    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\RepRapWorld\\Megatronics\\Configuration.h:\n 1265  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1266  //\n 1267: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1268  \n 1269  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\RigidBot\\Configuration.h:\n 1266  // RigidBoard: To rewire this for a RigidBot see http://rigidtalk.com/wiki/index.php?title=LCD_Smart_Controller\n 1267  //\n 1268: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1269  \n 1270  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\RigidBot\\Configuration_adv.h:\n  533                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  534    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  535:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  536                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  537    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\SCARA\\Configuration.h:\n 1280  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1281  //\n 1282: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1283  \n 1284  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\SCARA\\Configuration_adv.h:\n  533                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  534    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  535:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  536                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  537    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\TAZ4\\Configuration.h:\n 1286  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1287  //\n 1288: #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1289  \n 1290  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\TAZ4\\Configuration_adv.h:\n  541                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  542    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  543:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  544                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  545    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\tvrrug\\Round2\\Configuration.h:\n 1261  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1262  //\n 1263: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1264  \n 1265  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\tvrrug\\Round2\\Configuration_adv.h:\n  533                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  534    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  535:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  536                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  537    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\WITBOX\\Configuration.h:\n 1257  // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller\n 1258  //\n 1259: //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n 1260  \n 1261  //\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\example_configurations\\WITBOX\\Configuration_adv.h:\n  533                                     // WARNING: Menu navigation during short moves may cause stuttering!\n  534    #define LCD_UPDATE_THRESHOLD 135 // (ms) Minimum duration for the current segment to allow an LCD update.\n  535:                                    // Default value is good for graphical LCDs (e.g., REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER).\n  536                                     // You may try to lower this value until you printer starts stuttering again as if ENSURE_SMOOTH_MOVES is disabled.\n  537    #define MIN_BLOCK_TIME 6         // (ms) Minimum duration of a single block. You shouldn't need to modify this.\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\SanityCheck.h:\n  917   * Make sure only one display is enabled\n  918   *\n  919:  * Note: BQ_LCD_SMART_CONTROLLER => REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER\n  920:  *       REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER => REPRAP_DISCOUNT_SMART_CONTROLLER\n  921   *       SAV_3DGLCD => U8GLIB_SH1106 => ULTIMAKERCONTROLLER\n  922   *       miniVIKI => ULTIMAKERCONTROLLER\n  ...\n  933    #define COUNT_LCD_2 COUNT_LCD_1\n  934  #endif\n  935: #if ENABLED(REPRAP_DISCOUNT_SMART_CONTROLLER) && DISABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)\n  936    #define COUNT_LCD_3 INCREMENT(COUNT_LCD_2)\n  937  #else\n  938    #define COUNT_LCD_3 COUNT_LCD_2\n  939  #endif\n  940: #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER) && DISABLED(BQ_LCD_SMART_CONTROLLER)\n  941    #define COUNT_LCD_4 INCREMENT(COUNT_LCD_3)\n  942  #else\n\n46 matches across 42 files\n\n\nSearching 241 files for \"LCD_PINS_ENABLE\"\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_3DRAG.h:\n   80  \n   81    #undef LCD_PINS_RS\n   82:   #undef LCD_PINS_ENABLE\n   83    #undef LCD_PINS_D4\n   84    #undef LCD_PINS_D5\n   ..\n   86    #undef LCD_PINS_D7\n   87    #define LCD_PINS_RS      27\n   88:   #define LCD_PINS_ENABLE  29\n   89    #define LCD_PINS_D4      37\n   90    #define LCD_PINS_D5      35\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_A4JP.h:\n  131  //\n  132  #define LCD_PINS_RS         70 // Ext2_5\n  133: #define LCD_PINS_ENABLE     71 // Ext2_7\n  134  #define LCD_PINS_D4         72 // Ext2_9 ?\n  135  #define LCD_PINS_D5         73 // Ext2_11 ?\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_AZTEEG_X3.h:\n   69  \n   70    #define LCD_PINS_RS       32\n   71:   #define LCD_PINS_ENABLE   32\n   72  \n   73    //#define DOGLCD_A0         31\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_CHEAPTRONIC.h:\n   81  // Cheaptronic v1.0 doesn't support LCD\n   82  #define LCD_PINS_RS        -1\n   83: #define LCD_PINS_ENABLE    -1\n   84  #define LCD_PINS_D4        -1\n   85  #define LCD_PINS_D5        -1\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_GEN7_CUSTOM.h:\n   88  // 4bit LCD Support\n   89  #define LCD_PINS_RS     18\n   90: #define LCD_PINS_ENABLE 17\n   91  #define LCD_PINS_D4     16\n   92  #define LCD_PINS_D5     15\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_MEGATRONICS.h:\n  107  \n  108    #define LCD_PINS_RS     16\n  109:   #define LCD_PINS_ENABLE 17\n  110    #define LCD_PINS_D4     23\n  111    #define LCD_PINS_D5     25\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_MEGATRONICS_2.h:\n  120  \n  121  #define LCD_PINS_RS        14\n  122: #define LCD_PINS_ENABLE    15\n  123  #define LCD_PINS_D4        30\n  124  #define LCD_PINS_D5        31\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_MEGATRONICS_3.h:\n  144  #if ENABLED(REPRAPWORLD_GRAPHICAL_LCD)\n  145    #define LCD_PINS_RS      56 // CS chip select / SS chip slave select\n  146:   #define LCD_PINS_ENABLE  51 // SID (MOSI)\n  147    #define LCD_PINS_D4      52 // SCK (CLK) clock\n  148    #define SD_DETECT_PIN    35\n  149  #else\n  150    #define LCD_PINS_RS      32\n  151:   #define LCD_PINS_ENABLE  31\n  152    #define LCD_PINS_D4      14\n  153    #define LCD_PINS_D5      30\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_MINIRAMBO.h:\n  126  \n  127      #define LCD_PINS_RS    82\n  128:     #define LCD_PINS_ENABLE 18\n  129      #define LCD_PINS_D4    19\n  130      #define LCD_PINS_D5    70\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_MINITRONICS.h:\n   99  \n  100    #define LCD_PINS_RS      15 // CS chip select /SS chip slave select\n  101:   #define LCD_PINS_ENABLE  11 // SID (MOSI)\n  102    #define LCD_PINS_D4      10 // SCK (CLK) clock\n  103  \n  ...\n  111  \n  112    #define LCD_PINS_RS      -1\n  113:   #define LCD_PINS_ENABLE  -1\n  114    #define LCD_PINS_D4      -1\n  115    #define LCD_PINS_D5      -1\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_PRINTRBOARD.h:\n  125  \n  126    #define LCD_PINS_RS 9\n  127:   #define LCD_PINS_ENABLE 8\n  128    #define LCD_PINS_D4 7\n  129    #define LCD_PINS_D5 6\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_PRINTRBOARD_REVF.h:\n  112  \n  113    #define LCD_PINS_RS 9\n  114:   #define LCD_PINS_ENABLE 8\n  115    #define LCD_PINS_D4 7\n  116    #define LCD_PINS_D5 6\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_RAMBO.h:\n  153  \n  154      #define LCD_PINS_RS 70\n  155:     #define LCD_PINS_ENABLE 71\n  156      #define LCD_PINS_D4 72\n  157      #define LCD_PINS_D5 73\n  ...\n  204  \n  205      #define LCD_PINS_RS 75\n  206:     #define LCD_PINS_ENABLE 17\n  207      #define LCD_PINS_D4 23\n  208      #define LCD_PINS_D5 25\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_RAMPS.h:\n  214    #if ENABLED(REPRAPWORLD_GRAPHICAL_LCD)\n  215      #define LCD_PINS_RS     49 // CS chip select /SS chip slave select\n  216:     #define LCD_PINS_ENABLE 51 // SID (MOSI)\n  217      #define LCD_PINS_D4     52 // SCK (CLK) clock\n  218    #elif ENABLED(NEWPANEL) && ENABLED(PANEL_ONE)\n  219      #define LCD_PINS_RS 40\n  220:     #define LCD_PINS_ENABLE 42\n  221      #define LCD_PINS_D4 65\n  222      #define LCD_PINS_D5 66\n  ...\n  225    #else\n  226      #define LCD_PINS_RS 16\n  227:     #define LCD_PINS_ENABLE 17\n  228      #define LCD_PINS_D4 23\n  229      #define LCD_PINS_D5 25\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_RUMBA.h:\n  141  #define BEEPER_PIN         44\n  142  #define LCD_PINS_RS        19\n  143: #define LCD_PINS_ENABLE    42\n  144  #define LCD_PINS_D4        18\n  145  #define LCD_PINS_D5        38\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_SANGUINOLOLU_11.h:\n  132        #if IS_MELZI // Melzi board\n  133          #define LCD_PINS_RS     30 // CS chip select /SS chip slave select\n  134:         #define LCD_PINS_ENABLE 29 // SID (MOSI)\n  135          #define LCD_PINS_D4     17 // SCK (CLK) clock\n  136          // Pin 27 is taken by LED_PIN, but Melzi LED does nothing with\n  ...\n  140        #else         // Sanguinololu 1.3\n  141          #define LCD_PINS_RS      4\n  142:         #define LCD_PINS_ENABLE 17\n  143          #define LCD_PINS_D4     30\n  144          #define LCD_PINS_D5     29\n  ...\n  164  \n  165      #define LCD_PINS_RS          4\n  166:     #define LCD_PINS_ENABLE     17\n  167      #define LCD_PINS_D4         30\n  168      #define LCD_PINS_D5         29\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_SAV_MKI.h:\n  122  #define BEEPER_PIN         -1\n  123  #define LCD_PINS_RS        -1\n  124: #define LCD_PINS_ENABLE    -1\n  125  #define LCD_PINS_D4        -1\n  126  #define LCD_PINS_D5        -1\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_TEENSY2.h:\n  131  #if ENABLED(ULTIPANEL)\n  132    #define LCD_PINS_RS         8\n  133:   #define LCD_PINS_ENABLE     9\n  134    #define LCD_PINS_D4        10\n  135    #define LCD_PINS_D5        11\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_ULTIMAIN_2.h:\n  101  \n  102  #define LCD_PINS_RS        20\n  103: #define LCD_PINS_ENABLE    15\n  104  #define LCD_PINS_D4        14\n  105  #define LCD_PINS_D5        21\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_ULTIMAKER.h:\n  114  \n  115      #define LCD_PINS_RS 20\n  116:     #define LCD_PINS_ENABLE 17\n  117      #define LCD_PINS_D4 16\n  118      #define LCD_PINS_D5 21\n  ...\n  136  \n  137      #define LCD_PINS_RS 16\n  138:     #define LCD_PINS_ENABLE 5\n  139      #define LCD_PINS_D4 6\n  140      #define LCD_PINS_D5 21\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pins_ULTIMAKER_OLD.h:\n   91  //\n   92  #define LCD_PINS_RS        24\n   93: #define LCD_PINS_ENABLE    22\n   94  #define LCD_PINS_D4        36\n   95  #define LCD_PINS_D5        34\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\pinsDebug.h:\n  349      PIN_SAY(LCD_PINS_D7);\n  350    #endif\n  351:   #if defined(LCD_PINS_ENABLE) && LCD_PINS_ENABLE >= 0\n  352:     PIN_SAY(LCD_PINS_ENABLE);\n  353    #endif\n  354    #if defined(LCD_PINS_RS) && LCD_PINS_RS >= 0\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\ultralcd_impl_DOGM.h:\n  144    // U8GLIB_ST7920_128X64 u8g(LCD_PINS_RS); // 8 stripes\n  145  #elif ENABLED(U8GLIB_ST7920)\n  146:   //U8GLIB_ST7920_128X64_4X u8g(LCD_PINS_D4, LCD_PINS_ENABLE, LCD_PINS_RS); // Original u8glib device. 2 stripes\n  147                                                                              // No 4 stripe device available from u8glib.\n  148:   //U8GLIB_ST7920_128X64_1X u8g(LCD_PINS_D4, LCD_PINS_ENABLE, LCD_PINS_RS);    // Original u8glib device. 8 stripes\n  149    U8GLIB_ST7920_128X64_RRD u8g(0); // Number of stripes can be adjusted in ultralcd_st7920_u8glib_rrd.h with PAGE_HEIGHT\n  150  #elif ENABLED(CARTESIO_UI)\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\ultralcd_impl_HD44780.h:\n  177    #include <LiquidCrystal.h>\n  178    #define LCD_CLASS LiquidCrystal\n  179:   LCD_CLASS lcd(LCD_PINS_RS, LCD_PINS_ENABLE, LCD_PINS_D4, LCD_PINS_D5, LCD_PINS_D6, LCD_PINS_D7); //RS,Enable,D4,D5,D6,D7\n  180  #endif\n  181  \n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\ultralcd_st7920_u8glib_rrd.h:\n   29  \n   30  #define ST7920_CLK_PIN  LCD_PINS_D4\n   31: #define ST7920_DAT_PIN  LCD_PINS_ENABLE\n   32  #define ST7920_CS_PIN   LCD_PINS_RS\n   33  \n\n37 matches across 25 files\n\n\nSearching 241 files for \"ST7920_DELAY_1\"\n\nC:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin\\ultralcd_st7920_u8glib_rrd.h:\n   52  \n   53  // If you want you can define your own set of delays in Configuration.h\n   54: //#define ST7920_DELAY_1 DELAY_0_NOP\n   55  //#define ST7920_DELAY_2 DELAY_0_NOP\n   56  //#define ST7920_DELAY_3 DELAY_0_NOP\n   57  \n   58  #if F_CPU >= 20000000\n   59:   #define CPU_ST7920_DELAY_1 DELAY_0_NOP\n   60    #define CPU_ST7920_DELAY_2 DELAY_0_NOP\n   61    #define CPU_ST7920_DELAY_3 DELAY_1_NOP\n   62  #elif (MOTHERBOARD == BOARD_3DRAG) || (MOTHERBOARD == BOARD_K8200) || (MOTHERBOARD == BOARD_K8400)\n   63:   #define CPU_ST7920_DELAY_1 DELAY_0_NOP\n   64    #define CPU_ST7920_DELAY_2 DELAY_3_NOP\n   65    #define CPU_ST7920_DELAY_3 DELAY_0_NOP\n   66  #elif (MOTHERBOARD == BOARD_MINIRAMBO)\n   67:   #define CPU_ST7920_DELAY_1 DELAY_0_NOP\n   68    #define CPU_ST7920_DELAY_2 DELAY_4_NOP\n   69    #define CPU_ST7920_DELAY_3 DELAY_0_NOP\n   70  #elif (MOTHERBOARD == BOARD_RAMBO)\n   71:   #define CPU_ST7920_DELAY_1 DELAY_0_NOP\n   72    #define CPU_ST7920_DELAY_2 DELAY_0_NOP\n   73    #define CPU_ST7920_DELAY_3 DELAY_0_NOP\n   74  #elif F_CPU == 16000000\n   75:   #define CPU_ST7920_DELAY_1 DELAY_0_NOP\n   76    #define CPU_ST7920_DELAY_2 DELAY_0_NOP\n   77    #define CPU_ST7920_DELAY_3 DELAY_1_NOP\n   ..\n   80  #endif\n   81  \n   82: #ifndef ST7920_DELAY_1\n   83:   #define ST7920_DELAY_1 CPU_ST7920_DELAY_1\n   84  #endif\n   85  #ifndef ST7920_DELAY_2\n   ..\n   91  \n   92  #define ST7920_SND_BIT \\\n   93:   WRITE(ST7920_CLK_PIN, LOW);        ST7920_DELAY_1; \\\n   94    WRITE(ST7920_DAT_PIN, val & 0x80); ST7920_DELAY_2; \\\n   95    WRITE(ST7920_CLK_PIN, HIGH);       ST7920_DELAY_3; \\\n\n10 matches in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 46633,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "Marlin/ultralcd_st7920_u8glib_rrd.h",
+			"settings":
+			{
+				"buffer_size": 6759,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Marlin/Conditionals_LCD.h",
+			"settings":
+			{
+				"buffer_size": 12076,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Marlin/Configuration_adv.h",
+			"settings":
+			{
+				"buffer_size": 46288,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Arduino Builder",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Arduino Builder",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Arduino Builder",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"add repo",
+				"Package Control: Add Repository"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			" import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin"
+	],
+	"file_history":
+	[
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/pins_RAMPS_13.h",
+		"/C/Users/Fulg/Downloads/base16-solarized-dark.reg.txt",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/Configuration.h",
+		"/G/config.txt",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/Version.h",
+		"/D/Documents/Arduino/Marlin/Configuration.h",
+		"/K/octopi-network.txt",
+		"/K/cmdline.txt",
+		"/K/octopi-hostname.txt",
+		"/K/octopi.txt",
+		"/C/Users/Fulg/Documents/Code/UnrealEngine/Engine/Build/JunkManifest.txt",
+		"/C/Users/Fulg/Documents/Code/UnrealEngine/Engine/Build/SourceDistribution.txt",
+		"/D/Documents/public_key.txt",
+		"/K/cmdline-pi-tft.txt",
+		"/K/config.txt",
+		"/C/Users/Fulg/Downloads/Repetier/pins.h",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/Configuration_adv.h",
+		"/C/Users/Fulg/Downloads/VORON Tuned Aug 23 2016.factory",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/Configuration_adv.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_TEST/Marlin/Configuration.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/Configuration.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/temperature.cpp",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/Marlin_main.cpp",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Marlin/temperature.cpp",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/thermistortables.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Marlin/Configuration.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Marlin/language.h",
+		"/C/Users/Fulg/Documents/Code/VORON_test/Marlin/G29_debug_RC7.txt",
+		"/C/Users/Fulg/Documents/Code/VORON_test/Marlin/G29_debug_RCBugFix.txt",
+		"/C/Users/Fulg/Documents/Code/VORON_test/Marlin/Configuration.h",
+		"/C/Users/Fulg/Documents/Code/VORON_test/Marlin/Marlin_main.cpp",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/pins_RAMPS.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/pins_AZTEEG_X3.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/pins.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin/boards.h",
+		"/C/Users/Fulg/AppData/Local/Arduino15/preferences.txt",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_VORON/Marlin_for_VORON.sublime-workspace",
+		"/C/Users/Fulg/Downloads/M2-E3D-0.4mm.fff",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/.gitignore",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Marlin_for_ORDBot.sublime-project",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/buildroot/bin/build_marlin",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Configuration_adv.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/SanityCheck.h",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/servo.cpp",
+		"/C/Users/Fulg/Documents/Code/Marlin_for_ORDBot/Configuration.h",
+		"/C/Program Files (x86)/Arduino/examples/01.Basics/AnalogReadSerial/AnalogReadSerial.ino",
+		"/C/Users/Fulg/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/pins_RAMPS.h",
+		"/C/Users/Fulg/Documents/Code/Marlin/Marlin/pins_AZTEEG_X3.h",
+		"/C/Users/Fulg/Downloads/power_box_2.gcode",
+		"/C/Users/Fulg/Downloads/z_shaft_support_lower_x4.gcode",
+		"/D/Documents/Code/Aeon/Building.txt",
+		"/C/Users/Fulg/Documents/Code/UnrealEngine/Engine/Binaries/ThirdParty/OSVRClientKit/OSVR.tps",
+		"/C/Users/Fulg/Documents/Code/UnrealEngine/GenerateProjectFiles.command",
+		"/C/Program Files (x86)/Oculus/Software/oculus-oculus-video/videos_settings.ini",
+		"/C/Users/Fulg/Downloads/AutoplayVR_0.85/AutoplayVR/Manual.txt",
+		"/C/Users/Fulg/Downloads/bigbox_pro(1).fff",
+		"/C/Users/Fulg/Downloads/nt-6-6-2.xyz",
+		"/C/Users/Fulg/Downloads/FirstCube.gcode",
+		"/C/Strawberry/README.txt",
+		"/C/Users/Fulg/Documents/3DPrinter/Duct/Customizable_fan_duct_Tobera_parametrizable/Instructions_-_Instrucciones.txt",
+		"/D/Documents/Arduino/Marlin.ref/pins.h",
+		"/C/Users/Fulg/Downloads/_40x10.gcode",
+		"/D/_Stuff/VirtualRealPlayer-0.7.8beta/Config/GeneralConfig.txt",
+		"/D/_Stuff/VirtualRealPlayer-0.7.8beta/Readme.txt",
+		"/C/Users/Fulg/Documents/Marlin/Marlin/pins.h",
+		"/I/octopi-network.txt",
+		"/C/Users/Fulg/Documents/wowgirls_passwords.txt",
+		"/C/Documents and Settings/Fulg/Downloads/EZStruder.SAT",
+		"/C/Users/Fulg/Downloads/FirstCube_single_wall(1).gcode",
+		"//MORDOR/Media/Software/Applications/Acronis TrueImage 2016/serial.txt",
+		"//MORDOR/Media/Software/Applications/Acronis TrueImage 2015/serial.txt",
+		"//Mordor/Media/Software/Heli/RealFlight/BUILD.TXT",
+		"/C/Users/Fulg/Downloads/20mm_cube.gcode",
+		"/C/Users/Fulg/Downloads/rex.gcode",
+		"/C/Users/Fulg/AppData/Local/Temp/Rar$DIa0.395/README.txt",
+		"/J/config.txt",
+		"/I/octopi.txt",
+		"/D/Documents/Arduino/libraries/readme.txt",
+		"/D/Documents/Arduino/Marlin-1.0.2-1/README.md",
+		"/I/config.txt"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\Users\\Fulg\\Documents\\Code\\Marlin\\Marlin",
+			"C:\\Users\\Fulg\\Documents\\Code\\Marlin_RCBugFix\\Marlin",
+			"C:\\Users\\Fulg\\Documents\\Code\\Marlin_for_VORON\\Marlin",
+			"C:\\Users\\Fulg\\Documents\\Code\\Marlin_for_ORDBot\\Marlin",
+			"<open folders>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"3d printer",
+			"ST7920_DELAY_1",
+			"delay",
+			"LCD_PINS_ENABLE",
+			"DOGLCD_A0",
+			"REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER",
+			"ELB_FULL_GRAPHIC_CONTROLLER",
+			"DOGLCD_A0",
+			"SD_DETECT_PIN",
+			"carddetect",
+			"cardde",
+			"BTN_EN1",
+			"full",
+			"azteeg",
+			"eepr",
+			"raise",
+			"200",
+			"z_probe_rep",
+			"_led",
+			"led",
+			"z_min_pro",
+			"max_powe",
+			"thermal",
+			"HOMING_FEEDRATE_Z",
+			"long",
+			"200",
+			"home",
+			"probe_end",
+			"pprobe_end",
+			"Z_MIN_PROBE_ENDSTOP_INVERTING",
+			"40",
+			"invert",
+			"SAFE_HOM",
+			"safe_hom",
+			"sync_from_steppers",
+			"planner.sync_from_steppers()",
+			"MAX_BED_POWER",
+			"300",
+			"eep",
+			"home",
+			"fast",
+			"HEATER_0_MAXTEMP",
+			"PID_BED_DEBUG",
+			"current_temperature_bed",
+			"maxtemp",
+			"maxtempra",
+			"max_temp_ra",
+			"maxtemp_ra",
+			"SERIAL_ERRORLNPGM",
+			"MSG_ERR_KILLED",
+			" MSG_ERR_KILLED",
+			"kill() called",
+			"BED_MAXTEMP",
+			"MAXTEMP",
+			"maxtemp",
+			"MSG_STOPPED_HEATER",
+			"system stopped!",
+			"triggered, system stopped!",
+			"BED_MAXTEMP",
+			"extruder",
+			"INVERT_E0_DIR",
+			"therm",
+			"safe_ho",
+			"num_serv",
+			"servo_nr",
+			"DIGIPOT_I2C",
+			"invert",
+			"digipot",
+			"e_step",
+			"estep",
+			"debug",
+			"prepare_move_to_destination",
+			"g1",
+			"200",
+			"m303",
+			"raise",
+			"MSG_FILAMENTCHANGE",
+			"retract",
+			"m303",
+			"marlin",
+			"commandpal",
+			"bltouch",
+			"SERVO_DELAY",
+			"3.00",
+			"beep",
+			"ooze",
+			"blip",
+			"left ex",
+			"perime",
+			"shell",
+			"petg",
+			"115",
+			"pause_button_pin",
+			"m112",
+			"PauseButton",
+			"m109",
+			"p_factor",
+			"pwm"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Marlin/Configuration.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 56488,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								34715,
+								34715
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 11682.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Marlin/pins_AZTEEG_X3.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2048,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1562,
+								1562
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 600.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Marlin/pins_RAMPS.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10197,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6134,
+								6145
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2974.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 46633,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										418,
+										428
+									],
+									[
+										792,
+										802
+									],
+									[
+										831,
+										841
+									],
+									[
+										1163,
+										1173
+									],
+									[
+										1194,
+										1204
+									],
+									[
+										1682,
+										1709
+									],
+									[
+										1983,
+										2010
+									],
+									[
+										2192,
+										2219
+									],
+									[
+										2377,
+										2404
+									],
+									[
+										2625,
+										2652
+									],
+									[
+										2970,
+										2997
+									],
+									[
+										3247,
+										3274
+									],
+									[
+										3491,
+										3518
+									],
+									[
+										3868,
+										3895
+									],
+									[
+										4144,
+										4171
+									],
+									[
+										4525,
+										4552
+									],
+									[
+										4802,
+										4829
+									],
+									[
+										5184,
+										5211
+									],
+									[
+										5465,
+										5492
+									],
+									[
+										5851,
+										5878
+									],
+									[
+										6131,
+										6158
+									],
+									[
+										6516,
+										6543
+									],
+									[
+										6795,
+										6822
+									],
+									[
+										7179,
+										7206
+									],
+									[
+										7448,
+										7475
+									],
+									[
+										7822,
+										7849
+									],
+									[
+										8096,
+										8123
+									],
+									[
+										8341,
+										8368
+									],
+									[
+										8719,
+										8746
+									],
+									[
+										8994,
+										9021
+									],
+									[
+										9374,
+										9401
+									],
+									[
+										9643,
+										9670
+									],
+									[
+										10017,
+										10044
+									],
+									[
+										10286,
+										10313
+									],
+									[
+										10660,
+										10687
+									],
+									[
+										10939,
+										10966
+									],
+									[
+										11182,
+										11209
+									],
+									[
+										11558,
+										11585
+									],
+									[
+										11847,
+										11874
+									],
+									[
+										12091,
+										12118
+									],
+									[
+										12468,
+										12495
+									],
+									[
+										12737,
+										12764
+									],
+									[
+										13111,
+										13138
+									],
+									[
+										13379,
+										13406
+									],
+									[
+										13752,
+										13779
+									],
+									[
+										14029,
+										14056
+									],
+									[
+										14411,
+										14438
+									],
+									[
+										14681,
+										14708
+									],
+									[
+										15056,
+										15083
+									],
+									[
+										15263,
+										15290
+									],
+									[
+										15572,
+										15599
+									],
+									[
+										15832,
+										15859
+									],
+									[
+										16030,
+										16057
+									],
+									[
+										16365,
+										16410
+									],
+									[
+										16513,
+										16558
+									],
+									[
+										16783,
+										16828
+									],
+									[
+										17231,
+										17276
+									],
+									[
+										17763,
+										17808
+									],
+									[
+										18025,
+										18070
+									],
+									[
+										18505,
+										18550
+									],
+									[
+										19032,
+										19077
+									],
+									[
+										19516,
+										19561
+									],
+									[
+										20046,
+										20091
+									],
+									[
+										20531,
+										20576
+									],
+									[
+										21065,
+										21110
+									],
+									[
+										21554,
+										21599
+									],
+									[
+										22087,
+										22132
+									],
+									[
+										22575,
+										22620
+									],
+									[
+										23107,
+										23152
+									],
+									[
+										23594,
+										23639
+									],
+									[
+										24116,
+										24161
+									],
+									[
+										24593,
+										24638
+									],
+									[
+										25120,
+										25165
+									],
+									[
+										25383,
+										25428
+									],
+									[
+										25864,
+										25909
+									],
+									[
+										26392,
+										26437
+									],
+									[
+										26875,
+										26920
+									],
+									[
+										27397,
+										27442
+									],
+									[
+										27874,
+										27919
+									],
+									[
+										28396,
+										28441
+									],
+									[
+										28873,
+										28918
+									],
+									[
+										29405,
+										29450
+									],
+									[
+										29666,
+										29711
+									],
+									[
+										30145,
+										30190
+									],
+									[
+										30685,
+										30730
+									],
+									[
+										30988,
+										31033
+									],
+									[
+										31468,
+										31513
+									],
+									[
+										31990,
+										32035
+									],
+									[
+										32467,
+										32512
+									],
+									[
+										32986,
+										33031
+									],
+									[
+										33462,
+										33507
+									],
+									[
+										33992,
+										34037
+									],
+									[
+										34477,
+										34522
+									],
+									[
+										35000,
+										35045
+									],
+									[
+										35478,
+										35523
+									],
+									[
+										35965,
+										36010
+									],
+									[
+										36027,
+										36072
+									],
+									[
+										36350,
+										36395
+									],
+									[
+										36536,
+										36581
+									],
+									[
+										36867,
+										36882
+									],
+									[
+										37027,
+										37042
+									],
+									[
+										37251,
+										37266
+									],
+									[
+										37510,
+										37525
+									],
+									[
+										37742,
+										37757
+									],
+									[
+										37978,
+										37993
+									],
+									[
+										38190,
+										38205
+									],
+									[
+										38407,
+										38422
+									],
+									[
+										38710,
+										38725
+									],
+									[
+										38904,
+										38919
+									],
+									[
+										39124,
+										39139
+									],
+									[
+										39383,
+										39398
+									],
+									[
+										39549,
+										39564
+									],
+									[
+										39763,
+										39778
+									],
+									[
+										39968,
+										39983
+									],
+									[
+										40167,
+										40182
+									],
+									[
+										40321,
+										40336
+									],
+									[
+										40611,
+										40626
+									],
+									[
+										40809,
+										40824
+									],
+									[
+										40970,
+										40985
+									],
+									[
+										41204,
+										41219
+									],
+									[
+										41514,
+										41529
+									],
+									[
+										41804,
+										41819
+									],
+									[
+										41982,
+										41997
+									],
+									[
+										42238,
+										42253
+									],
+									[
+										42480,
+										42495
+									],
+									[
+										42703,
+										42718
+									],
+									[
+										42922,
+										42937
+									],
+									[
+										43076,
+										43091
+									],
+									[
+										43289,
+										43304
+									],
+									[
+										43512,
+										43527
+									],
+									[
+										43532,
+										43547
+									],
+									[
+										43572,
+										43587
+									],
+									[
+										43878,
+										43893
+									],
+									[
+										44126,
+										44141
+									],
+									[
+										44541,
+										44556
+									],
+									[
+										44813,
+										44828
+									],
+									[
+										45129,
+										45143
+									],
+									[
+										45302,
+										45316
+									],
+									[
+										45552,
+										45566
+									],
+									[
+										45742,
+										45756
+									],
+									[
+										45928,
+										45942
+									],
+									[
+										46103,
+										46117
+									],
+									[
+										46269,
+										46283
+									],
+									[
+										46301,
+										46315
+									],
+									[
+										46320,
+										46334
+									],
+									[
+										46469,
+										46483
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								45150,
+								45150
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 5,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 13710.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Marlin/ultralcd_st7920_u8glib_rrd.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6759,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1687,
+								1798
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 692.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Marlin/Conditionals_LCD.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12076,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10985,
+								10990
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4684.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Marlin/Configuration_adv.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 46288,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20033,
+								20033
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6242.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 279.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Marlin.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ramps",
+				"pins_RAMPS.h"
+			],
+			[
+				"ramp",
+				"pins_RAMPS_13.h"
+			],
+			[
+				"pin",
+				"pins_AZTEEG_X3.h"
+			],
+			[
+				"con",
+				"Configuration.h"
+			],
+			[
+				"conf",
+				"Configuration.h"
+			],
+			[
+				"vers",
+				"Version.h"
+			],
+			[
+				"tempera",
+				"temperature.cpp"
+			],
+			[
+				"confo",
+				"Configuration.h"
+			],
+			[
+				"config",
+				"Configuration_adv.h"
+			],
+			[
+				"pins",
+				"pins_AZTEEG_X3.h"
+			],
+			[
+				"azte",
+				"pins_AZTEEG_X3.h"
+			],
+			[
+				"aztee",
+				"pins_AZTEEG_X3.h"
+			],
+			[
+				"boards",
+				"boards.h"
+			],
+			[
+				"marl",
+				"Marlin_main.cpp"
+			],
+			[
+				"pins_az",
+				"pins_AZTEEG_X3.h"
+			],
+			[
+				"boa",
+				"boards.h"
+			],
+			[
+				"marli",
+				"Marlin_main.cpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 266.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
