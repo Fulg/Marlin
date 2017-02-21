@@ -59,7 +59,29 @@
 
 #else
 
-  #define STAT_LED_RED_PIN   6
-  #define STAT_LED_BLUE_PIN 11
+  #undef DOGLCD_CS
+  #undef BTN_EN1
+  #undef BTN_EN2
+  #undef BTN_ENC
+  #undef SD_DETECT_PIN
+  #undef LCD_PINS_RS
+  #undef LCD_PINS_ENABLE
+  #undef LCD_PINS_D4
+  #undef LCD_SDSS
+
+  #define LCD_PINS_RS       31
+  #define LCD_PINS_ENABLE   32
+  #define LCD_PINS_D4       39
+
+  //#define DOGLCD_A0         31
+  //#define DOGLCD_CS         32
+  #define BTN_EN1           22
+  #define BTN_EN2            7
+  #define BTN_ENC           12
+  #define SD_DETECT_PIN     49
+  #define LCD_SDSS          53
+
+  //#define STAT_LED_RED_PIN   6
+  //#define STAT_LED_BLUE_PIN 11
 
 #endif
