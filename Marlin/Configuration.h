@@ -910,15 +910,6 @@
   #define UBL_MESH_INSET 1          // Mesh inset margin on print area
   #define GRID_MAX_POINTS_X 10      // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
-<<<<<<< HEAD
-  #define UBL_PROBE_PT_1_X 50       // These set the probe locations for when UBL does a 3-Point leveling
-  #define UBL_PROBE_PT_1_Y 150      // of the mesh.
-  #define UBL_PROBE_PT_2_X 100
-  #define UBL_PROBE_PT_2_Y 50
-  #define UBL_PROBE_PT_3_X 170
-  #define UBL_PROBE_PT_3_Y 100
-  //#define UBL_G26_MESH_EDITING    // Enable G26 mesh editing
-=======
 
   #define UBL_PROBE_PT_1_X 39       // Probing points for 3-Point leveling of the mesh
   #define UBL_PROBE_PT_1_Y 180
@@ -929,7 +920,6 @@
 
   #define UBL_G26_MESH_VALIDATION   // Enable G26 mesh validation
   #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
->>>>>>> d3bc877007ceaeaeed11898998ee83b54f83de46
 
 #elif ENABLED(MESH_BED_LEVELING)
 
@@ -982,12 +972,7 @@
 // - If stepper drivers time out, it will need X and Y homing again before Z homing.
 // - Move the Z probe (or nozzle) to a defined XY point before Z Homing when homing all axes (G28).
 // - Prevent Z homing when the Z probe is outside bed area.
-<<<<<<< HEAD
 #define Z_SAFE_HOMING
-=======
-//
-//#define Z_SAFE_HOMING
->>>>>>> d3bc877007ceaeaeed11898998ee83b54f83de46
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT ((X_MIN_POS + X_MAX_POS) / 2)    // X point for Z homing when homing all axis (G28).
@@ -1011,7 +996,6 @@
 // M500 - stores parameters in EEPROM
 // M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
-<<<<<<< HEAD
 //define this to enable EEPROM support
 #define EEPROM_SETTINGS
 
@@ -1019,12 +1003,6 @@
   // To disable EEPROM Serial responses and decrease program space by ~1700 byte: comment this out:
   #define EEPROM_CHITCHAT // Please keep turned on if you can.
 #endif
-=======
-//
-//#define EEPROM_SETTINGS // Enable for M500 and M501 commands
-//#define DISABLE_M503    // Saves ~2700 bytes of PROGMEM. Disable for release!
-#define EEPROM_CHITCHAT   // Give feedback on EEPROM commands. Disable to save PROGMEM.
->>>>>>> d3bc877007ceaeaeed11898998ee83b54f83de46
 
 //
 // Host Keepalive
